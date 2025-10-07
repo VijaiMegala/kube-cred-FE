@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from './Button';
-import { Input } from './Input';
 
 interface CredentialFormProps {
   onSubmit: (data: Record<string, any>) => void;
@@ -23,7 +22,7 @@ const CredentialForm = ({
   );
   const [jsonError, setJsonError] = useState<string | null>(null);
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { handleSubmit } = useForm();
 
   const handleJsonChange = (value: string) => {
     setJsonInput(value);
@@ -36,7 +35,7 @@ const CredentialForm = ({
     }
   };
 
-  const onFormSubmit = (data: any) => {
+  const onFormSubmit = () => {
     try {
       const credentialData = JSON.parse(jsonInput);
       onSubmit(credentialData);

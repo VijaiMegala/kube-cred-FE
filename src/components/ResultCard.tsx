@@ -1,12 +1,12 @@
 import { CredentialResponse } from '../types/credential';
-import { CheckCircle, XCircle, Clock, User, Calendar } from 'lucide-react';
+import { CheckCircle, XCircle, User, Calendar } from 'lucide-react';
 
 interface ResultCardProps {
   result: CredentialResponse;
   type: 'issue' | 'verify';
 }
 
-const ResultCard = ({ result, type }: ResultCardProps) => {
+const ResultCard = ({ result }: ResultCardProps) => {
   if (!result) return null;
 
   const isSuccess = result.success;
